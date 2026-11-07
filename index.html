@@ -148,7 +148,7 @@
       <div class="venue"><span class="status">In preparation</span> for IEEE TDSC (Special Issue on Trust, Privacy &amp; Security in Intelligent and Agentic Systems)</div>
       <img class="fig" src="ragmark.png" alt="RagMark: dual-layer embedding watermark at ingestion (attribution and integrity bands) and verification at retrieval against an untrusted vector database.">
       <details class="abs"><summary></summary>
-        <p>A dual-layer embedding watermark (robust attribution + fragile integrity) with a full-vector fingerprint that defeats confidence-oracle hill-climbing (0/50 forgeries). Against a steelmanned signed-hash-only baseline, it isolates the watermark's unique contribution: provenance that survives metadata loss (99/100 vs. 0/100 recovery). Under a corpus-matched PoisonedRAG attack it restores end-task accuracy from 7.4% to 76.2%, statistically indistinguishable from the clean pipeline.</p>
+        <p>RagMark embeds a dual-layer watermark into each RAG vector at ingestion&mdash;a robust attribution band and a fragile integrity band in disjoint PCA sub-spaces&mdash;and verifies both at retrieval against an untrusted vector database, gated by an HMAC-bound signed manifest. The design defeats confidence-oracle hill-climbing (0/50 forgeries) and preserves provenance that survives metadata loss (99/100 vs. 0/100 recovery). Under a corpus-matched PoisonedRAG attack it restores end-task accuracy from 7.4% to 76.2%, statistically indistinguishable from the clean pipeline.</p>
       </details>
     </div>
 

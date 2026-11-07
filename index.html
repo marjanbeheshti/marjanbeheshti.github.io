@@ -105,7 +105,7 @@
       <div class="title">Can LLM Coding Agents Trust Their Own Tests? An Empirical Study of Self-Testing and Internal Signals</div>
       <div class="authors">M. Beheshti</div>
       <div class="venue"><span class="status">In preparation</span> for AGENT'27 (ICSE 2027 Workshop on Agentic Engineering)</div>
-      <!-- <img class="fig" src="coding-agent.png" alt="Coding agent self-testing figure"> -->
+      <img class="fig" src="coding-agent.png" alt="A real missed bug: a coding agent writes buggy code, writes its own test that asserts the wrong answer, and self-reviews it as correct; a task-derived test catches the bug and the hidden-state monitor flags it among the top 2% most suspicious solutions.">
       <details class="abs"><summary></summary>
         <p>The tests a model writes for its own code catch 5.6&ndash;25.1 percentage points fewer bugs than specification-derived tests (four models, two families, 10,840 solutions); a cross-model control shows the cause is the visible code, not authorship. Self-review does not compensate: across all four models, self-review called test-passing code buggy once in 714 verdicts. A hidden-state linear probe ranks buggy test-passing code better than the model's verbal confidence (AUROC 0.67&ndash;0.75) and roughly doubles the missed-bug catch rate under a 30% test-escalation budget; a second open model works as an external monitor of equal quality.</p>
       </details>
@@ -152,14 +152,6 @@
       </details>
     </div>
 
-    <div class="pub">
-      <div class="title">Training-Free Rotation Recovery via Watermark Self-Synchronization</div>
-      <div class="authors">M. Beheshti, R. Xu</div>
-      <div class="venue"><span class="status">In preparation</span></div>
-      <details class="abs"><summary></summary>
-        <p>Rotation recovery for latent-space watermarks is formulated as sparse polar cross-correlation (SPCC): a matched filter over 317 circular trajectories produces a 14.8&sigma; orientation peak without neural-network training or additional embedding. We derive a closed-form detectability bound, SNR = 2(p&minus;0.5)&radic;m, validated by a position-count ablation, and achieve 98.2% decode across 13,500 rotation trials.</p>
-      </details>
-    </div>
   </section>
 
   <footer>

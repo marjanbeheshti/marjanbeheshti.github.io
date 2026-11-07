@@ -29,7 +29,8 @@
   .wrap{max-width:760px; margin:0 auto; padding:48px 16px 80px}
   header h1{font-size:2rem; margin:0 0 4px}
   .role{color:var(--muted); font-size:1.05rem; margin:0 0 2px}
-  .affil{color:var(--muted); margin:0 0 18px}
+  .affil{color:var(--muted); margin:0 0 10px}
+  .tags{color:var(--muted); font-size:.9rem; margin:0 0 16px}
   .links a{color:var(--accent); text-decoration:none; margin-right:14px; font-size:.97rem}
   .links a:hover{text-decoration:underline}
   h2{font-size:1.15rem; margin:40px 0 6px; padding-bottom:6px; border-bottom:1px solid var(--line)}
@@ -44,6 +45,13 @@
   .pub .plinks a{color:var(--accent); text-decoration:none; font-size:.9rem; margin-right:12px}
   .pub .plinks a:hover{text-decoration:underline}
   .eq{color:var(--muted); font-size:.85rem}
+  details.abs{margin-top:8px}
+  details.abs summary{cursor:pointer; color:var(--accent); font-size:.9rem; list-style:none}
+  details.abs summary::-webkit-details-marker{display:none}
+  details.abs summary::before{content:"▸ Abstract"}
+  details.abs[open] summary::before{content:"▾ Abstract"}
+  details.abs p{font-size:.95rem; color:var(--fg); margin:8px 0 2px}
+  .pub img.fig{display:block; width:100%; max-width:100%; height:auto; border:1px solid var(--line); border-radius:8px; margin:12px 0 4px}
   footer{margin-top:48px; color:var(--muted); font-size:.9rem; border-top:1px solid var(--line); padding-top:16px}
 </style>
 </head>
@@ -53,10 +61,11 @@
     <h1>Marjan Beheshti</h1>
     <p class="role">MS student, Computer Science</p>
     <p class="affil">Michigan Technological University &middot; Advised by Dr. Ronghua Xu and Dr. Bo Chen</p>
+    <p class="tags">AI &amp; LLM Security &middot; Watermarking &amp; Provenance &middot; Multi-Agent Integrity &middot; Model Internals</p>
     <p class="links">
       <a href="mailto:mbehes2@mtu.edu">mbehes2@mtu.edu</a>
       <a href="https://github.com/marjanbeheshti">GitHub</a>
-      <a href="https://arxiv.org/a/beheshti_m_1">arXiv</a>
+      <a href="https://drive.google.com/file/d/1EnEtdBxH9yiZ5hPL5o5dGPePq6xrkuGL/view?usp=drive_link">CV</a>
     </p>
   </header>
 
@@ -81,6 +90,11 @@
       <div class="title">ProbeFake: Informativeness- and Redundancy-Guided Layer Selection from Frozen Self-Supervised Speech Models for Cross-Domain Audio Deepfake Detection</div>
       <div class="authors">M. Beheshti<span class="eq">*</span>, M. Rostami<span class="eq">*</span>, B. Chen &nbsp;<span class="eq">(* equal contribution)</span></div>
       <div class="venue"><span class="status">Under Review (revised)</span>, Computer Speech &amp; Language</div>
+      <!-- To add a figure: upload probefake.png to the repo, then uncomment the next line -->
+      <!-- <img class="fig" src="probefake.png" alt="ProbeFake overview figure"> -->
+      <details class="abs"><summary></summary>
+        <p>We propose a two-stage method that selects layers of a frozen self-supervised speech backbone before training any detector, using XGBoost probes for informativeness and linear CKA for redundancy. The method reaches 4.45% average EER over five cross-domain datasets with 1.19M trainable parameters, a 40% relative reduction over an all-layer frozen-backbone system and a lower cross-domain average than a fully fine-tuned 318M-parameter model. Ablations show that covering the informativeness peaks is essential: with no peak covered, EER collapses to 23.56%.</p>
+      </details>
       <div class="plinks">
         <a href="https://arxiv.org/abs/2606.30791">arXiv:2606.30791</a>
         <a href="https://github.com/marjanbeheshti/ProbeFake">Code</a>
@@ -91,6 +105,10 @@
       <div class="title">Can LLM Coding Agents Trust Their Own Tests? An Empirical Study of Self-Testing and Internal Signals</div>
       <div class="authors">M. Beheshti</div>
       <div class="venue"><span class="status">In preparation</span> for AGENT'27 (ICSE 2027 Workshop on Agentic Engineering)</div>
+      <!-- <img class="fig" src="coding-agent.png" alt="Coding agent self-testing figure"> -->
+      <details class="abs"><summary></summary>
+        <p>The tests a model writes for its own code catch 5.6&ndash;25.1 percentage points fewer bugs than specification-derived tests (four models, two families, 10,840 solutions); a cross-model control shows the cause is the visible code, not authorship. Self-review does not compensate: across all four models, self-review called test-passing code buggy once in 714 verdicts. A hidden-state linear probe ranks buggy test-passing code better than the model's verbal confidence (AUROC 0.67&ndash;0.75) and roughly doubles the missed-bug catch rate under a 30% test-escalation budget; a second open model works as an external monitor of equal quality.</p>
+      </details>
       <div class="plinks">
         <a href="https://github.com/marjanbeheshti/knowing-testing-gap">Artifact / Code</a>
       </div>
@@ -102,6 +120,10 @@
       <div class="title">Fragile Watermarking for KV-Cache Integrity in Latent Multi-Agent Systems</div>
       <div class="authors">M. Beheshti, R. Xu</div>
       <div class="venue"><span class="status">Under Review (Phase 2)</span>, <span class="accepted">USENIX Security 2027</span></div>
+      <img class="fig" src="kvcache.png" alt="KV-cache watermarking pipeline: watermark embedding at each inter-agent handoff, attacker tampering, and watermark verification.">
+      <details class="abs"><summary></summary>
+        <p>The first watermarking scheme for KV-cache integrity in latent multi-agent LLM systems: a fragile, keyed, zero-bit watermark is embedded into both V-cache and K-cache at each inter-agent handoff. It achieves 100% TPR / 0% FPR (AUROC = 1.0) across 1,500 handoff verifications with no measurable accuracy loss, and 100% layer-level attack localization. It resists steering, the Out-of-Sight DiffMean attack, quantization, compression, forgery, and replay (100% detection); content-bound key derivation cuts replay success from 100% to 1%.</p>
+      </details>
       <div class="plinks">
         <a href="https://github.com/marjanbeheshti/Kvseal">Code</a>
       </div>
@@ -111,6 +133,10 @@
       <div class="title">Attack-Resilient Multi-Bit Image Watermarking Framework via Latent Coordinate Sign Clamping</div>
       <div class="authors">M. Beheshti, R. Xu</div>
       <div class="venue"><span class="status">Under Review (Phase 2)</span>, <span class="accepted">AAAI 2027</span></div>
+      <img class="fig" src="image-watermark.png" alt="Image watermarking: authorized distribution with per-user ID, unauthorized redistribution under removal and forgery attacks, and watermark detection.">
+      <details class="abs"><summary></summary>
+        <p>A training-free method encodes a 32&ndash;128-bit message by clamping about 2% of diffusion latent coordinates, with the remaining dimensions absorbing the constraint at no quality cost. It reaches 99.9% decode at SSIM = 0.92 and 94.6% under the CtrlRegen+ regeneration attack, where ZoDiac drops to 18%&mdash;the first training-free multi-bit watermark for existing images robust to both removal and forgery. A two-layer forgery defense combines perceptual hashing with a cryptographic fuzzy commitment over CLIP features (98.8% detection at scale).</p>
+      </details>
       <div class="plinks">
         <a href="https://arxiv.org/abs/2610.40204">arXiv:2610.40204</a>
       </div>
@@ -120,12 +146,19 @@
       <div class="title">RagMark: Hybrid Embedding Watermarks for Tamper Detection and Source Attribution in Retrieval-Augmented Generation</div>
       <div class="authors">M. Beheshti, R. Xu</div>
       <div class="venue"><span class="status">In preparation</span> for IEEE TDSC (Special Issue on Trust, Privacy &amp; Security in Intelligent and Agentic Systems)</div>
+      <img class="fig" src="ragmark.png" alt="RagMark: dual-layer embedding watermark at ingestion (attribution and integrity bands) and verification at retrieval against an untrusted vector database.">
+      <details class="abs"><summary></summary>
+        <p>A dual-layer embedding watermark (robust attribution + fragile integrity) with a full-vector fingerprint that defeats confidence-oracle hill-climbing (0/50 forgeries). Against a steelmanned signed-hash-only baseline, it isolates the watermark's unique contribution: provenance that survives metadata loss (99/100 vs. 0/100 recovery). Under a corpus-matched PoisonedRAG attack it restores end-task accuracy from 7.4% to 76.2%, statistically indistinguishable from the clean pipeline.</p>
+      </details>
     </div>
 
     <div class="pub">
       <div class="title">Training-Free Rotation Recovery via Watermark Self-Synchronization</div>
       <div class="authors">M. Beheshti, R. Xu</div>
-      <div class="venue"><span class="status">In preparation</span> &middot; closed-form detectability bound, SNR = 2(p&minus;0.5)&radic;m</div>
+      <div class="venue"><span class="status">In preparation</span></div>
+      <details class="abs"><summary></summary>
+        <p>Rotation recovery for latent-space watermarks is formulated as sparse polar cross-correlation (SPCC): a matched filter over 317 circular trajectories produces a 14.8&sigma; orientation peak without neural-network training or additional embedding. We derive a closed-form detectability bound, SNR = 2(p&minus;0.5)&radic;m, validated by a position-count ablation, and achieve 98.2% decode across 13,500 rotation trials.</p>
+      </details>
     </div>
   </section>
 

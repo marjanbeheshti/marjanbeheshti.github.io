@@ -106,7 +106,7 @@
       <div class="venue"><span class="status">In preparation</span> for AGENT'27 (ICSE 2027 Workshop on Agentic Engineering)</div>
       <img class="fig" src="coding-agent.png" alt="A real missed bug: a coding agent writes buggy code, writes its own test that asserts the wrong answer, and self-reviews it as correct; a task-derived test catches the bug and the hidden-state monitor flags it among the top 2% most suspicious solutions.">
       <details class="abs"><summary></summary>
-        <p>The tests a model writes for its own code catch 5.6&ndash;25.1 percentage points fewer bugs than specification-derived tests (four models, two families, 10,840 solutions); a cross-model control shows the cause is the visible code, not authorship. Self-review does not compensate: across all four models, self-review called test-passing code buggy once in 714 verdicts. A hidden-state linear probe ranks buggy test-passing code better than the model's verbal confidence (AUROC 0.67&ndash;0.75) and roughly doubles the missed-bug catch rate under a 30% test-escalation budget; a second open model works as an external monitor of equal quality.</p>
+        <p>Coding agents increasingly write both the code and the tests that check it, treating a task as done when those tests pass. We study this self-testing across four open code models (1.3B&ndash;7B) on 542 tasks from HumanEval+ and MBPP+. Tests written while seeing the code catch 5.6&ndash;25.1 percentage points fewer bugs than tests written from the task description alone, and a second model shown the same code is misled at least as much, so the cause is the visible code, not authorship. Self-review called passing code buggy only once in 714 cases. In contrast, a classifier on hidden states identifies buggy passing code better than the model's own "is this correct?" answer, and catches about twice as many missed bugs as random selection at a 30% budget; a separate model reading the code monitors about as well, extending the approach toward closed-model agents.</p>
       </details>
       <div class="plinks">
         <a href="https://github.com/marjanbeheshti/knowing-testing-gap">Artifact / Code</a>
@@ -116,12 +116,12 @@
     <p class="subhead">Integrity, Provenance &amp; Watermarking</p>
 
     <div class="pub">
-      <div class="title">Fragile Watermarking for KV-Cache Integrity in Latent Multi-Agent Systems</div>
+      <div class="title">KVMark: Fragile Watermarking for KV-Cache Integrity in Latent Multi-Agent Systems</div>
       <div class="authors">M. Beheshti, R. Xu</div>
       <div class="venue"><span class="status">Under Review (Phase 2)</span>, <span class="accepted">USENIX Security 2027</span></div>
-      <img class="fig" src="kvcache.png" alt="KV-cache watermarking pipeline: watermark embedding at each inter-agent handoff, attacker tampering, and watermark verification.">
+      <img class="fig" src="kvcache.png" alt="KVMark watermarking pipeline: watermark embedding at each inter-agent handoff, attacker tampering, and watermark verification.">
       <details class="abs"><summary></summary>
-        <p>The first watermarking scheme for KV-cache integrity in latent multi-agent LLM systems: a fragile, keyed, zero-bit watermark is embedded into both V-cache and K-cache at each inter-agent handoff. It achieves 100% TPR / 0% FPR (AUROC = 1.0) across 1,500 handoff verifications with no measurable accuracy loss, and 100% layer-level attack localization. It resists steering, the Out-of-Sight DiffMean attack, quantization, compression, forgery, and replay (100% detection); content-bound key derivation cuts replay success from 100% to 1%.</p>
+        <p>Latent multi-agent communication transfers KV-cache tensors directly between transformer agents, an efficient but opaque channel vulnerable to man-in-the-middle tampering that text- or behavior-based watermarks cannot inspect. KVMark is a training-free, zero-bit KV-cache watermark that verifies inter-agent handoff integrity via position- and per-head sign patterns, a depth-aware strength schedule invisible to nine profiling strategies, and content-bound key derivation that prevents replay under Kerckhoffs's principle. On a four-agent pipeline it reaches 100% detection across 1,500 handoffs at 0.0% FPR (AUROC = 1.0), 100% layer-level tamper localization, and no significant reasoning-accuracy loss; it isolates compromised agents over three hops (500/500), withstands adaptive white-box and Out-of-Sight DiffMean attacks, and generalizes to Qwen3-8B without re-tuning.</p>
       </details>
       <div class="plinks">
         <a href="https://github.com/marjanbeheshti/Kvseal">Code</a>
@@ -134,7 +134,7 @@
       <div class="venue"><span class="status">Under Review (Phase 2)</span>, <span class="accepted">AAAI 2027</span></div>
       <img class="fig" src="image-watermark.png" alt="Image watermarking: authorized distribution with per-user ID, unauthorized redistribution under removal and forgery attacks, and watermark detection.">
       <details class="abs"><summary></summary>
-        <p>A training-free method encodes a 32&ndash;128-bit message by clamping about 2% of diffusion latent coordinates, with the remaining dimensions absorbing the constraint at no quality cost. It reaches 99.9% decode at SSIM = 0.92 and 94.6% under the CtrlRegen+ regeneration attack, where ZoDiac drops to 18%&mdash;the first training-free multi-bit watermark for existing images robust to both removal and forgery. A two-layer forgery defense combines perceptual hashing with a cryptographic fuzzy commitment over CLIP features (98.8% detection at scale).</p>
+        <p>A training-free watermarking framework that exploits the overcompleteness of diffusion latent spaces to embed multi-bit payloads (32&ndash;128 bits) into arbitrary natural or AI-generated images while preserving visual quality. A three-layer decoding pipeline (magnitude-weighted majority voting, BCH, and Chase decoding) maximizes extraction accuracy under channel noise. Against active adversaries it adds a steganalysis-resistant noise camouflage layer and a dual-layer forgery defense combining perceptual hashing with a Reed-Solomon fuzzy commitment over CLIP features. It mitigates advanced removal (94.6% decode under CtrlRegen+ regeneration) and secures forgery detection (98.8% via joint CLIP and RS fuzzy commitment).</p>
       </details>
       <div class="plinks">
         <a href="https://arxiv.org/abs/2610.40204">arXiv:2610.40204</a>

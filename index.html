@@ -90,8 +90,7 @@
       <div class="title">ProbeFake: Informativeness- and Redundancy-Guided Layer Selection from Frozen Self-Supervised Speech Models for Cross-Domain Audio Deepfake Detection</div>
       <div class="authors">M. Beheshti<span class="eq">*</span>, M. Rostami<span class="eq">*</span>, B. Chen &nbsp;<span class="eq">(* equal contribution)</span></div>
       <div class="venue"><span class="status">Under Review (revised)</span>, Computer Speech &amp; Language</div>
-      <!-- To add a figure: upload probefake.png to the repo, then uncomment the next line -->
-      <!-- <img class="fig" src="probefake.png" alt="ProbeFake overview figure"> -->
+      <img class="fig" src="probefake.png" alt="ProbeFake two-stage method: Stage 1 selects informative, non-redundant layers of a frozen SSL speech backbone using XGBoost probes and linear CKA; Stage 2 trains a 1.19M-parameter attention-pooling head on the selected layers to classify bona fide vs. spoof.">
       <details class="abs"><summary></summary>
         <p>We propose a two-stage method that selects layers of a frozen self-supervised speech backbone before training any detector, using XGBoost probes for informativeness and linear CKA for redundancy. The method reaches 4.45% average EER over five cross-domain datasets with 1.19M trainable parameters, a 40% relative reduction over an all-layer frozen-backbone system and a lower cross-domain average than a fully fine-tuned 318M-parameter model. Ablations show that covering the informativeness peaks is essential: with no peak covered, EER collapses to 23.56%.</p>
       </details>

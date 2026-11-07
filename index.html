@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Marjan Beheshti</title>
+<meta name="description" content="Marjan Beheshti — MS student in Computer Science at Michigan Technological University. Research on AI/LLM security: watermarking, provenance, integrity, and model internals.">
+<style>
+  :root{
+    --bg:#ffffff; --fg:#1a1a1a; --muted:#555; --accent:#1F6FEB;
+    --line:#e5e7eb; --card:#f7f8fa; --venue:#0E9F47;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#0f1115; --fg:#e8e8ea; --muted:#9aa0a6; --accent:#5aa2ff;
+      --line:#262a31; --card:#161922; --venue:#3ddc84;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#0f1115; --fg:#e8e8ea; --muted:#9aa0a6; --accent:#5aa2ff;
+    --line:#262a31; --card:#161922; --venue:#3ddc84;
+  }
+  *{box-sizing:border-box}
+  body{
+    background:var(--bg); color:var(--fg); margin:0;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    line-height:1.6; font-size:17px;
+  }
+  .wrap{max-width:760px; margin:0 auto; padding:48px 16px 80px}
+  header h1{font-size:2rem; margin:0 0 4px}
+  .role{color:var(--muted); font-size:1.05rem; margin:0 0 2px}
+  .affil{color:var(--muted); margin:0 0 18px}
+  .links a{color:var(--accent); text-decoration:none; margin-right:14px; font-size:.97rem}
+  .links a:hover{text-decoration:underline}
+  h2{font-size:1.15rem; margin:40px 0 6px; padding-bottom:6px; border-bottom:1px solid var(--line)}
+  p.lead{margin:14px 0 0}
+  .subhead{font-size:.8rem; letter-spacing:.06em; text-transform:uppercase; color:var(--muted); margin:26px 0 10px}
+  .pub{background:var(--card); border:1px solid var(--line); border-radius:10px; padding:14px 16px; margin:12px 0}
+  .pub .title{font-weight:600}
+  .pub .authors{color:var(--muted); font-size:.95rem; margin:3px 0}
+  .pub .venue{font-size:.92rem; margin:3px 0}
+  .pub .venue .status{color:var(--accent); font-weight:600}
+  .pub .venue .accepted{color:var(--venue); font-weight:600}
+  .pub .plinks a{color:var(--accent); text-decoration:none; font-size:.9rem; margin-right:12px}
+  .pub .plinks a:hover{text-decoration:underline}
+  .eq{color:var(--muted); font-size:.85rem}
+  footer{margin-top:48px; color:var(--muted); font-size:.9rem; border-top:1px solid var(--line); padding-top:16px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Marjan Beheshti</h1>
+    <p class="role">MS student, Computer Science</p>
+    <p class="affil">Michigan Technological University &middot; Advised by Dr. Ronghua Xu and Dr. Bo Chen</p>
+    <p class="links">
+      <a href="mailto:mbehes2@mtu.edu">mbehes2@mtu.edu</a>
+      <a href="https://github.com/marjanbeheshti">GitHub</a>
+      <a href="https://arxiv.org/a/beheshti_m_1">arXiv</a>
+    </p>
+  </header>
+
+  <section>
+    <h2>Research</h2>
+    <p class="lead">
+      I work on the security and reliability of AI systems, studied directly in their
+      internal representations. My research develops watermarking, provenance, integrity
+      verification, and representation-level analysis for multi-agent LLM pipelines, LLM
+      coding agents, diffusion-model outputs, and RAG systems, evaluated against adaptive
+      adversaries. I am especially interested in knowing when a model is wrong from its
+      internal signals, and in moving robustness from measured to provable.
+    </p>
+  </section>
+
+  <section>
+    <h2>Publications &amp; Preprints</h2>
+
+    <p class="subhead">Interpretability &amp; Failure Modes</p>
+
+    <div class="pub">
+      <div class="title">ProbeFake: Informativeness- and Redundancy-Guided Layer Selection from Frozen Self-Supervised Speech Models for Cross-Domain Audio Deepfake Detection</div>
+      <div class="authors">M. Beheshti<span class="eq">*</span>, M. Rostami<span class="eq">*</span>, B. Chen &nbsp;<span class="eq">(* equal contribution)</span></div>
+      <div class="venue"><span class="status">Under Review (revised)</span>, Computer Speech &amp; Language</div>
+      <div class="plinks">
+        <a href="https://arxiv.org/abs/2606.30791">arXiv:2606.30791</a>
+        <a href="https://github.com/marjanbeheshti/ProbeFake">Code</a>
+      </div>
+    </div>
+
+    <div class="pub">
+      <div class="title">Can LLM Coding Agents Trust Their Own Tests? An Empirical Study of Self-Testing and Internal Signals</div>
+      <div class="authors">M. Beheshti</div>
+      <div class="venue"><span class="status">In preparation</span> for AGENT'27 (ICSE 2027 Workshop on Agentic Engineering)</div>
+      <div class="plinks">
+        <a href="https://github.com/marjanbeheshti/knowing-testing-gap">Artifact / Code</a>
+      </div>
+    </div>
+
+    <p class="subhead">Integrity, Provenance &amp; Watermarking</p>
+
+    <div class="pub">
+      <div class="title">Fragile Watermarking for KV-Cache Integrity in Latent Multi-Agent Systems</div>
+      <div class="authors">M. Beheshti, R. Xu</div>
+      <div class="venue"><span class="status">Under Review (Phase 2)</span>, <span class="accepted">USENIX Security 2027</span></div>
+      <div class="plinks">
+        <a href="https://github.com/marjanbeheshti/Kvseal">Code</a>
+      </div>
+    </div>
+
+    <div class="pub">
+      <div class="title">Attack-Resilient Multi-Bit Image Watermarking Framework via Latent Coordinate Sign Clamping</div>
+      <div class="authors">M. Beheshti, R. Xu</div>
+      <div class="venue"><span class="status">Under Review (Phase 2)</span>, <span class="accepted">AAAI 2027</span></div>
+      <div class="plinks">
+        <a href="https://arxiv.org/abs/2610.40204">arXiv:2610.40204</a>
+      </div>
+    </div>
+
+    <div class="pub">
+      <div class="title">RagMark: Hybrid Embedding Watermarks for Tamper Detection and Source Attribution in Retrieval-Augmented Generation</div>
+      <div class="authors">M. Beheshti, R. Xu</div>
+      <div class="venue"><span class="status">In preparation</span> for IEEE TDSC (Special Issue on Trust, Privacy &amp; Security in Intelligent and Agentic Systems)</div>
+    </div>
+
+    <div class="pub">
+      <div class="title">Training-Free Rotation Recovery via Watermark Self-Synchronization</div>
+      <div class="authors">M. Beheshti, R. Xu</div>
+      <div class="venue"><span class="status">In preparation</span> &middot; closed-form detectability bound, SNR = 2(p&minus;0.5)&radic;m</div>
+    </div>
+  </section>
+
+  <footer>
+    Michigan Technological University, Houghton, MI &middot; mbehes2@mtu.edu
+  </footer>
+</div>
+</body>
+</html>

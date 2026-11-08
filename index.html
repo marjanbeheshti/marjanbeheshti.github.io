@@ -150,6 +150,9 @@
       <details class="abs"><summary></summary>
         <p>RagMark embeds a dual-layer watermark into each RAG vector at ingestion&mdash;a robust attribution band and a fragile integrity band in disjoint PCA sub-spaces&mdash;and verifies both at retrieval against an untrusted vector database, gated by an HMAC-bound signed manifest. The design defeats confidence-oracle hill-climbing (0/50 forgeries) and preserves provenance that survives metadata loss (99/100 vs. 0/100 recovery). Under a corpus-matched PoisonedRAG attack it restores end-task accuracy from 7.4% to 76.2%, statistically indistinguishable from the clean pipeline.</p>
       </details>
+      <div class="plinks">
+        <a href="https://github.com/marjanbeheshti/RagMark">Code</a>
+      </div>
     </div>
 
   </section>
